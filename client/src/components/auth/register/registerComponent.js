@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Form, Field } from "formik";
 import Button from "../../common/button";
+import Spinner from "../../common/spinner";
 
 import initialValues from "./formInitialValues";
 import registerValidation from "./validation";
@@ -9,12 +10,14 @@ import "./register.css";
 
 class RegisterComponent extends Component {
 
-    submitRegisterForm = (values) => {
-        console.log(121212);
-        console.log(1, values);
+    submitRegisterForm = (user) => {
+        const { registerUser } = this.props.actions;
+        registerUser(user);
     };
 
     render () {
+        const { registerStart } = this.props;
+        
         return(
             <Formik 
                 initialValues={initialValues}
@@ -23,6 +26,7 @@ class RegisterComponent extends Component {
                 render={(props) => {
                     return(
                         <Form id="register-form">
+                        {registerStart && <Spinner />}
                         <h1 className="text-center display-3 header">Sign Up</h1>
                         <div className="form-group">
                             <Field 

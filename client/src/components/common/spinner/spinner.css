@@ -14,7 +14,7 @@
     display: inline-block;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 35%;
     width: 64px;
     height: 64px;
   }
@@ -81,6 +81,15 @@
     transform: rotate(330deg);
     animation-delay: 0s;
 }
+
+.spinner-msg {
+    position: absolute;
+    top: 42%;
+    left: 46%;
+    color: #FFF;
+    font-weight: bold;
+}
+
 @keyframes lds-spinner {
 0% {
     opacity: 1;

@@ -10,6 +10,15 @@ class AuthApis extends BaseAuth {
             console.log("inside auth apis register user error", error);
         }
     };
+
+    async loginUser (user) {
+        try {
+          const loginResult = await axios.post((this.url + "/register"), user);
+          return loginResult;
+        } catch (error) {
+            console.log("inside auth apis login user error", error);
+        }
+    }
 };
 
 const authApis = new AuthApis();

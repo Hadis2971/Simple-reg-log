@@ -4,6 +4,15 @@ import { port } from "./config";
 
 const app = experss();
 
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  //res.setHeader('Access-Control-Allow-Credentials', true);
+
+  next();
+});
+
 import authRouter from "./components/auth/routes";
 import clientErrorHandler from "./components/error_handling/clientError";
 import genericErrorHandler from "./components/error_handling/serverError";

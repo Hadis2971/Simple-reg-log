@@ -12,7 +12,6 @@ export const registerUser = (user) => async (dispatch) => {
     } else {
         dispatch({
             type: types.REGISTER_SUCCESS,
-            data: registerResult.data.data
         });
     };
 };
