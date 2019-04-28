@@ -16,3 +16,12 @@ export const hashUserPassword = async (password, next) => {
         next(error);
     }
 };
+
+export const checkUserPassword = async (password, hash) => {
+    try {
+      const passwordMatch = await bcrypt.compare(password, hash);
+      return passwordMatch;
+    } catch (error) {
+      console.log("inside check password error", error);
+    }
+};

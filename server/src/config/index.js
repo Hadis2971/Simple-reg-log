@@ -10,3 +10,5 @@ export const dbConfig = {
     dbHost: process.env.DB_HOST,
     dbPassword: process.env.DB_PASSWORD
 }
+
+export const secretOrKey = process.env.AUTH_SECRET;

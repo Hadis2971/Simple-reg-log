@@ -1,4 +1,7 @@
 import experss from "express";
+import passport from "passport";
+
+import passportConfig from "./config/passportConfig";
 import dbConnection from "./database";
 import { port } from "./config";
 
@@ -24,6 +27,10 @@ app.use(experss.json());
 dbConnection.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err))
+
+// Setup passport config
+app.use(passport.initialize());
+(passportConfig(passport));
 
 app.use("/auth", authRouter);
 app.use(clientErrorHandler);
