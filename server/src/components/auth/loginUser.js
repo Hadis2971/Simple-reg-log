@@ -1,5 +1,5 @@
 import passport from "passport";
-import { createAuthToken } from "../../helpers/createToken";
+import { createAuthToken } from "../../helpers/authToken";
 
 export const loginUser = (req, res, next) => {
     passport.authenticate('local', {session: false}, (err, user, info) => {
@@ -18,7 +18,7 @@ export const loginUser = (req, res, next) => {
                 userID: user.id
             });
 
-            return res.json("Bearer " + token);
+            return res.json({token: ("Bearer " + token)});
         });
     })
     (req, res);

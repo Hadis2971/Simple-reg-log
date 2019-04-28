@@ -7,7 +7,7 @@ import loginSanitize from "../../input_check/sanitize/login";
 export const validateRegisterInput = (req, res, next) => {
     const { errors, isValid } = registerValidation(req.body);
     if (!isValid) {
-        res.status(400).json({Error: errors});
+        res.json({Error: errors});
     } else next();
 };
 
@@ -19,7 +19,7 @@ export const sanitizeRegisterInput = (req, res, next) => {
 export const validateLoginInput = (req, res, next) => {
     const { errors, isValid } = loginValidation(req.body);
     if (!isValid) {
-        res.status(400).json({Error: errors});
+        res.json({Error: errors});
     } else next();
 };
 

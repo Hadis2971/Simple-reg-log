@@ -13,7 +13,7 @@ class AuthApis extends BaseAuth {
 
     async loginUser (user) {
         try {
-          const loginResult = await axios.post((this.url + "/register"), user);
+          const loginResult = await axios.post((this.url + "/login"), user);
           return loginResult;
         } catch (error) {
             console.log("inside auth apis login user error", error);
